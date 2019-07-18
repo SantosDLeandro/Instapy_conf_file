@@ -96,16 +96,16 @@ with smart_run(session):
 
     """ Joining Engagement Pods...
     """
-    photo_comments = ['Nice shot! @{}',
-        'Awesome! @{}',
-        'Cool :thumbsup:',
-        'Just incredible :open_mouth:',
-        'What camera did you use @{}?',
-        'Love your posts @{}',
-        'Looks awesome @{}',
-        'Nice @{}',
-        ':raised_hands: Yes!',
-        'I can feel your passion @{} :muscle:']
+    photo_comments = 'Boa tentativa! @ {} ',
+        'Impressionante! @ {} ',
+        'Legal: thumbsup:',
+        'Apenas incrível: open_mouth:',
+        'Que câmera você usou @{}?',
+        'Adore seus posts @ {}',
+        'Parece incrível @{}',
+        'Agradável @{}',
+        ': mãos levantadas: sim!',
+        'Eu posso sentir sua paixão @ {}: muscle:']
 
     session.set_do_comment(enabled = True, percentage = 95)
     session.set_comments(photo_comments, media = 'Photo')
