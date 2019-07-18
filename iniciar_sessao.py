@@ -2,8 +2,8 @@
 O que este script de início rápido pretende fazer?
 - atividade básica de seguir / deixar de seguir.
 NOTAS:
-- Eu não quero automatizar comentários e gostos demais porque eu quero fazer
-isso apenas para postar que eu realmente gosto do conteúdo assim no momento eu só
+- Não automatizar comentários e gostos
+isso apenas para postar que realmente gostasse do conteúdo assim no momento só
 use a função follow / unfollow.
 - Eu uso dois arquivos "quickstart", um para seguir e outro para unfollow.
 - notei que o mais importante é que a conta de onde eu
@@ -71,25 +71,25 @@ with smart_run(session):
     """ Massive Follow of users followers (I suggest to follow not less than
     3500/4000 users for better results)...
     """
-    session.follow_user_followers(['marcelo_de_brito'], amount=6,
+    session.follow_user_followers(['marcelo_de_brito'], amount=3500,
                                   randomize=False, interact=True)
 
     """ First step of Unfollow action - Unfollow not follower users...
     """
-    session.unfollow_users(amount=3, InstapyFollowed=(True, "nonfollowers"),
+    session.unfollow_users(amount=3500, InstapyFollowed=(True, "nonfollowers"),
                            style="FIFO",
                            unfollow_after=12 * 60 * 60, sleep_delay=601)
     #Atrasos
-    session.set_action_delays(enabled=True, like=5.2, randomize=True, random_range=(70, 140))
+    #session.set_action_delays(enabled=True, like=5.2, randomize=True, random_range=(70, 140))
 
     """ Second step of Massive Follow...
     """
-    #session.follow_user_followers(['marcelo_de_brito'], amount=6,
+    session.follow_user_followers(['marcelo_de_brito'], amount=3500,
     #                             randomize=True, interact=True)
 
     """ Second step of Unfollow action - Unfollow not follower users...
     """
-    session.unfollow_users(amount=3, InstapyFollowed=(True, "nonfollowers"),
+    session.unfollow_users(amount=3500, InstapyFollowed=(True, "nonfollowers"),
                            style="FIFO",
                            unfollow_after=12 * 60 * 60, sleep_delay=601)
 
