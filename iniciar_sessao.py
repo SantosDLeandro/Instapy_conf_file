@@ -96,7 +96,7 @@ with smart_run(session):
 
     """ Joining Engagement Pods...
     """
-    photo_comments = 'Boa tentativa! @ {} ',
+    photo_comments = ['Boa tentativa! @ {} ',
         'Impressionante! @ {} ',
         'Legal: thumbsup:',
         'Apenas incrível: open_mouth:',
