@@ -2,14 +2,12 @@
 O que este script de início rápido pretende fazer?
 - atividade básica de seguir / deixar de seguir.
 NOTAS:
-- Não automatizar comentários e gostos
-isso apenas para postar que realmente gostasse do conteúdo assim no momento só
-use a função follow / unfollow.
-- Eu uso dois arquivos "quickstart", um para seguir e outro para unfollow.
-- notei que o mais importante é que a conta de onde eu
-obter seguidores tem conteúdo semelhante ao meu, a fim de ter certeza de que o meu
+- Não automatiza comentários e gostos,
+No momento só usa a função follow / unfollow.
+- Nota é que a conta de onde eu vou
+obter seguidores ter conteúdo semelhante ao meu, a fim de ter certeza de que o meu
 conteúdo pode ser apreciado. Após o próximo passo, começo a deixar de seguir
-o usuário que não me seguiu de volta.
+o usuário que não me seguiu de volta dentro de 24h.
 """
 
 # importações
