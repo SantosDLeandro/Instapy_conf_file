@@ -12,7 +12,7 @@ conteúdo pode ser apreciado. Após o próximo passo, começo a deixar de seguir
 o usuário que não me seguiu de volta.
 """
 
-# imports
+# importações
 from instapy import InstaPy
 from instapy import smart_run
 from selenium import webdriver
@@ -21,24 +21,26 @@ from time import sleep, strftime
 from random import randint
 
 
-# login credentials
+# credenciais de login
 insta_username = 'Rodolfodsantos2019'
 insta_password = '1e12e1e1'
 
-# get an InstaPy session!
-# set headless_browser=True to run InstaPy in the background
+# obtenha uma sessão InstaPy!
+# set headless_browser = True para executar o InstaPy em segundo plano
 session = InstaPy(username=insta_username,
                   password=insta_password,
                   headless_browser=False)
-
+                  
 with smart_run(session):
     """ Activity flow """
     # general settings
     session.set_relationship_bounds(enabled=True,
+                                    potency_ratio = -1.3,
                                     delimit_by_numbers=True,
-                                    max_followers=590,
-                                    min_followers=45,
-                                    min_following=77)
+                                    max_followers = 3000 ,
+                                    max_following = 2000 ,
+                                    min_followers = 100 ,
+                                    min_following = 50 )
 
     #session.set_dont_include(["friend1", "friend2", "friend3"])
     #session.set_dont_like(["vida", "#filosofia"])
@@ -66,35 +68,30 @@ with smart_run(session):
     #session.follow_by_locations(['1064589636918209'], amount=5, skip_top_posts=False)
 
 
-    # activities
+    # atividades
 
-    """ Massive Follow of users followers (I suggest to follow not less than
-    3500/4000 users for better results)...
+    """ Massive Follow de usuários seguidores (sugiro seguir não menos que
+    3500/4000 usuários para melhores resultados) ...
     """
     session.follow_user_followers(['marcelo_de_brito'], amount=3500,
-                                  randomize=False, interact=True)
+                                  randomize=True, interact=False)
 
-    """ First step of Unfollow action - Unfollow not follower users...
-    """
-    session.unfollow_users(amount=3500, InstapyFollowed=(True, "nonfollowers"),
+    # UNFOLLOW atividade
+    "" " Deixar de seguir não seguidores depois de um dia ...
+    "" "
+    session.unfollow_users(amount=random.randint(75, 100),
+                           InstapyFollowed=(True, "nonfollowers"),
                            style="FIFO",
-                           unfollow_after=12 * 60 * 60, sleep_delay=601)
+                           unfollow_after=48 * 60 * 60, sleep_delay=600)
     #Atrasos
     #session.set_action_delays(enabled=True, like=5.2, randomize=True, random_range=(70, 140))
 
-    """ Second step of Massive Follow...
+    """ Segundo passo do Massive Follow ...
     """
     session.follow_user_followers(['marcelo_de_brito'], amount=3500,
-    #                             randomize=True, interact=True)
+                                 randomize=True, interact=False)
 
-    """ Second step of Unfollow action - Unfollow not follower users...
-    """
-    session.unfollow_users(amount=3500, InstapyFollowed=(True, "nonfollowers"),
-                           style="FIFO",
-                           unfollow_after=12 * 60 * 60, sleep_delay=601)
-
-
-    """ Joining Engagement Pods...
+    """ Juntando-se a Pods de Engajamento ...
     """
     photo_comments = ['Boa tentativa! @ {} ',
         'Impressionante! @ {} ',
@@ -107,6 +104,6 @@ with smart_run(session):
         ': mãos levantadas: sim!',
         'Eu posso sentir sua paixão @ {}: muscle:']
 
-    session.set_do_comment(enabled = True, percentage = 95)
+    session.set_do_comment(enabled = False, percentage = 95)
     session.set_comments(photo_comments, media = 'Photo')
     session.join_pods()
