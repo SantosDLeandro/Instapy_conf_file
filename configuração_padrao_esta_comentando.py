@@ -28,6 +28,7 @@ with smart_run(session):
     
     
     # actions
+    #amount - Verifica as imagens que tenham a tag e entra na conta
     session.set_do_comment(enabled=True, percentage=100)
     session.set_comments(['Gostei muito', 'Muito Bom', 'Vamos la'])
-    session.like_by_tags(["terrenogravatá"])
+    session.like_by_tags(["Natgeo"], amount=10))
